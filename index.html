@@ -171,6 +171,7 @@
  <li><a href="#festival">The Festival</a></li>
  <li><a href="#trip">The Trip</a></li>
  <li><a href="#rolled">The Humbling</a></li>
+ <li><a href="#lab">The Lab</a></li>
  <li><a href="#training">Training</a></li>
  <li><a href="#numbers">Numbers</a></li>
  </ul>
@@ -383,19 +384,60 @@
     </div>
 
     <div class="roll-sub win rv">The comeback</div>
-    <p class="roll-lead rv" style="margin-top:10px;margin-bottom:20px">Two brand-new combos I picked up last week and locked across Tuesday and Thursday reps at Cavallo. Different from the behind-the-follow Lawrence sequence I already own, this is fresh vocabulary going in fast. Clean and repeatable, straight off the floor.</p>
+    <p class="roll-lead rv" style="margin-top:10px;margin-bottom:20px">Already clicking. New vocabulary is going in fast, and every combo gets filmed the night I learn it. Four banked since mid July - all of them live in <a href="#lab" style="color:var(--teal);text-decoration:underline">The Lab</a> below.</p>
+  </div>
+</section>
+
+<!-- THE LAB -->
+<style>
+  #lab{background:rgba(14,29,51,.60)}
+  .lab-lead{max-width:700px;color:#c6d3e5;font-size:18px;margin-top:-24px;margin-bottom:34px}
+  .lab-lead b{color:var(--white)}
+  .lab-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:40px}
+  @media(max-width:640px){.lab-stats{grid-template-columns:1fr}}
+  .lstat{border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;background:rgba(255,255,255,.03)}
+  .lstat .n{font-family:var(--display);font-weight:800;font-size:34px;color:var(--teal);line-height:1}
+  .lstat .t{font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:.08em;text-transform:uppercase}
+</style>
+<section id="lab">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="idx">04 / THE LAB</div>
+        <h2>The combo bank.</h2>
+      </div>
+      <p>Every combination I pick up gets filmed the same night and banked here. Watch, drill, repeat until it is boring.</p>
+    </div>
+    <p class="lab-lead rv">Through July I was on a floor <b>3 to 4 nights a week</b>. Since July 21 it has been <b>every single day</b>. This is where the reps land: each clip below is a combo straight off the floor at Cavallo, filmed the night I learned it.</p>
+    <div class="lab-stats rv">
+      <div class="lstat"><div class="n">3-4</div><div class="t">nights a week &middot; July</div></div>
+      <div class="lstat"><div class="n"><span id="streak">--</span></div><div class="t">day streak &middot; every day since Jul 21</div></div>
+      <div class="lstat"><div class="n">4</div><div class="t">combos banked since Jul 14</div></div>
+    </div>
     <div class="clips rv">
       <figure class="clip">
         <video controls preload="none" playsinline poster="clips/IMG_5871.jpg">
           <source src="clips/IMG_5871.mp4" type="video/mp4">
         </video>
-        <figcaption><b>New combo</b> - picked up last week, drilled Tuesday and Thursday at Cavallo Dance AZ.</figcaption>
+        <figcaption><b>Combo 01 &middot; Jul 14</b> - first of the new vocabulary. Drilled across Tuesday and Thursday reps at Cavallo Dance AZ.</figcaption>
       </figure>
       <figure class="clip">
         <video controls preload="none" playsinline poster="clips/IMG_5878.jpg">
           <source src="clips/IMG_5878.mp4" type="video/mp4">
         </video>
-        <figcaption><b>New combo</b> - locked across the same week. Clean and repeatable.</figcaption>
+        <figcaption><b>Combo 02 &middot; Jul 16</b> - locked the same week. Clean and repeatable.</figcaption>
+      </figure>
+      <figure class="clip">
+        <video controls preload="none" playsinline poster="clips/IMG_5888.jpg">
+          <source src="clips/IMG_5888.mp4" type="video/mp4">
+        </video>
+        <figcaption><b>Combo 03 &middot; Jul 21</b> - night one of the every-day streak.</figcaption>
+      </figure>
+      <figure class="clip">
+        <video controls preload="none" playsinline poster="clips/IMG_5893.jpg">
+          <source src="clips/IMG_5893.mp4" type="video/mp4">
+        </video>
+        <figcaption><b>Combo 04 &middot; Jul 23</b> - fresh material two nights into the streak.</figcaption>
       </figure>
     </div>
   </div>
@@ -406,7 +448,7 @@
  <div class="wrap">
  <div class="sec-head rv">
  <div>
- <div class="idx">04 / THE FIX</div>
+ <div class="idx">05 / THE FIX</div>
  <h2>Six weeks to sharp.</h2>
  </div>
  <p>The interim plan, built straight off the four leaks above. Salsa left, bachata right, one focus a week. Show up to Waikiki dangerous.</p>
@@ -499,7 +541,7 @@
  <div class="wrap">
  <div class="sec-head rv">
  <div>
- <div class="idx">05 / THE DAMAGE</div>
+ <div class="idx">06 / THE DAMAGE</div>
  <h2>What it runs.</h2>
  </div>
  <p>Group hotel rate and financed flight kept it lean. Core trip under two grand.</p>
@@ -552,6 +594,13 @@
  document.getElementById('cd-s').textContent = String(secs).padStart(2,'0');
  }
  tick(); setInterval(tick, 1000);
+
+ // dance streak: every day since Jul 21
+ var streakEl = document.getElementById('streak');
+ if (streakEl){
+ var labStart = new Date("2026-07-21T00:00:00-07:00").getTime();
+ streakEl.textContent = Math.max(1, Math.floor((new Date().getTime() - labStart)/86400000) + 1);
+ }
 
  // scroll reveal
  var io = new IntersectionObserver(function(es){
