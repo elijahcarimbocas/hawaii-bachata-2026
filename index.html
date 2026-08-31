@@ -174,8 +174,7 @@
  <li><a href="#trip">The Hub</a></li>
  <li><a href="#schedule">Schedule</a></li>
  <li><a href="#fits">The Fits</a></li>
- <li><a href="#rolled">The Humbling</a></li>
- <li><a href="#lab">Archive</a></li>
+ <li><a href="#training">The Arc</a></li>
  <li><a href="#numbers">Numbers</a></li>
  </ul>
  </div>
@@ -361,15 +360,11 @@
   .theme p{font-size:13.5px;color:var(--muted);line-height:1.55}
   .theme-note{margin-top:18px;font-size:13.5px;color:var(--muted);max-width:640px}
   .grid-note{font-size:14px;color:var(--muted);max-width:640px;margin:-8px 0 20px}
-  .dayx{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);margin-bottom:12px;overflow:hidden}
-  .dayx summary{cursor:pointer;list-style:none;padding:20px 24px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;transition:background .2s}
-  .dayx summary::-webkit-details-marker{display:none}
-  .dayx summary:hover{background:rgba(255,255,255,.03)}
-  .dayx summary::after{content:"+";margin-left:auto;font-family:var(--display);font-weight:800;font-size:22px;color:var(--muted);line-height:1}
-  .dayx[open] summary::after{content:"\2212"}
-  .dayx[open] summary{border-bottom:1px solid var(--line)}
-  .dx-d{font-family:var(--display);font-weight:800;font-size:19px;color:var(--white)}
-  .dx-t{font-size:13px;color:var(--gold)}
+  .dayx{border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:16px;background:rgba(255,255,255,.03);margin-bottom:16px;overflow:hidden}
+  .dayx:nth-of-type(even){border-left-color:var(--gold)}
+  .dxhead{padding:20px 24px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.03)}
+  .dxhead .dx-d{font-family:var(--display);font-weight:800;font-size:19px;color:var(--white)}
+  .dxhead .dx-t{font-size:13px;color:var(--gold)}
   .dx-body{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;padding:8px 24px 4px}
   .dx-body.one{grid-template-columns:1fr}
   @media(max-width:760px){.dx-body{grid-template-columns:1fr;gap:0}}
@@ -390,7 +385,9 @@
   .mhead{padding:24px 24px 18px}
   .mhead h4{font-family:var(--display);font-weight:800;font-size:20px;margin-bottom:7px}
   .mhead p{font-size:13.5px;color:var(--muted);line-height:1.55;max-width:620px}
-  #map{height:340px;width:100%;background:var(--night2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  #map{height:340px;width:100%;background:#0d3b4a;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  /* lean the imagery tropical: deeper turquoise water, greener ridges */
+  #map .leaflet-tile-pane{filter:saturate(1.5) contrast(1.06) brightness(1.04) hue-rotate(-6deg)}
   @media(max-width:640px){#map{height:280px}}
   .mlegend{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;padding:6px 24px 0}
   @media(max-width:760px){.mlegend{grid-template-columns:1fr;gap:0}}
@@ -442,8 +439,8 @@
  <h3 class="hub-sub rv">The full grid</h3>
  <p class="grid-note rv">Straight off the official schedule they posted Aug 29. Two rooms run in parallel all weekend, so you are picking one and skipping the other most hours.</p>
 
- <details class="dayx rv">
-  <summary><span class="dx-d">Thu, Sep 3</span><span class="dx-t">Pre-party at Aloha DanceSport Center</span></summary>
+ <div class="dayx rv">
+  <div class="dxhead"><span class="dx-d">Thu, Sep 3</span><span class="dx-t">Pre-party at Aloha DanceSport Center</span></div>
   <div class="dx-body one">
    <div class="room">
     <ul class="slots">
@@ -453,7 +450,7 @@
     </ul>
    </div>
   </div>
- </details>
+ </div>
 
  <div class="mapblock rv">
   <div class="mapx">
@@ -481,8 +478,8 @@
   </div>
  </div>
 
- <details class="dayx rv">
-  <summary><span class="dx-d">Fri, Sep 4</span><span class="dx-t">Hyatt ballroom, tropical night</span></summary>
+ <div class="dayx rv">
+  <div class="dxhead"><span class="dx-d">Fri, Sep 4</span><span class="dx-t">Hyatt ballroom, tropical night</span></div>
   <div class="dx-body">
    <div class="room">
     <div class="rm b">Bachata room</div>
@@ -516,10 +513,10 @@
    <li><i>8:30-10:30p</i><span>Shows</span></li>
    <li><i>10:30p-2:00a</i><span>Social dancing</span></li>
   </ul>
- </details>
+ </div>
 
- <details class="dayx rv">
-  <summary><span class="dx-d">Sat, Sep 5</span><span class="dx-t">Hyatt ballroom, gala night</span></summary>
+ <div class="dayx rv">
+  <div class="dxhead"><span class="dx-d">Sat, Sep 5</span><span class="dx-t">Hyatt ballroom, gala night</span></div>
   <div class="dx-body">
    <div class="room">
     <div class="rm b">Bachata room</div>
@@ -552,10 +549,10 @@
    <li><i>8:30-10:30p</i><span>Shows</span></li>
    <li><i>10:30p-2:00a</i><span>Social dancing</span></li>
   </ul>
- </details>
+ </div>
 
- <details class="dayx rv">
-  <summary><span class="dx-d">Sun, Sep 6</span><span class="dx-t">Hyatt ballroom, all white, runs to 2 AM</span></summary>
+ <div class="dayx rv">
+  <div class="dxhead"><span class="dx-d">Sun, Sep 6</span><span class="dx-t">Hyatt ballroom, all white, runs to 2 AM</span></div>
   <div class="dx-body">
    <div class="room">
     <div class="rm b">Bachata room</div>
@@ -581,7 +578,7 @@
    <li><i>9:00-10:30p</i><span>Shows</span></li>
    <li><i>10:30p-2:00a</i><span>Social dancing, last night</span></li>
   </ul>
- </details>
+ </div>
  </div>
 </section>
 
@@ -763,88 +760,8 @@
  </div>
 </section>
 
-<!-- HOW I GOT ROLLED -->
+<!-- shared: archive pills, folds, stat tiles -->
 <style>
-  #rolled .roll-lead{max-width:700px;color:#c6d3e5;font-size:18px;margin-top:-24px;margin-bottom:44px}
-  #rolled .roll-lead b{color:var(--white)}
-  #rolled .card .tag.rolled{background:var(--coral);color:#2a0a00}
-  .leaks{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px}
-  @media(max-width:640px){.leaks{grid-template-columns:1fr}}
-  .leak{border:1px solid var(--line);border-radius:14px;padding:22px;background:rgba(255,255,255,.02)}
-  .leak .n{font-family:var(--display);font-weight:800;color:var(--teal);font-size:13px;letter-spacing:.1em}
-  .leak h4{font-family:var(--display);font-weight:800;font-size:19px;margin:6px 0 8px}
-  .leak p{font-size:13.5px;color:var(--muted);line-height:1.5}
-  .roll-sub{font-family:var(--display);font-weight:800;font-size:18px;color:var(--gold);margin:44px 0 4px}
-  .roll-sub.win{color:var(--teal)}
-  .clips{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px}
-  @media(max-width:640px){.clips{grid-template-columns:1fr}}
-  .clip{margin:0;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  .clip video{width:100%;display:block;background:#000;aspect-ratio:9/16;object-fit:cover}
-  .clip figcaption{padding:14px 16px;font-size:13px;color:#c6d3e5;line-height:1.5}
-  .clip figcaption b{color:var(--teal)}
-</style>
-<section id="rolled">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div>
-        <div class="idx">03 / THE HUMBLING</div>
-        <h2>How I got rolled.</h2>
-      </div>
-      <p>Two years in, I walked into Cavallo's advanced salsa room and got schooled. Good. That is the whole reason the brief below exists.</p>
-    </div>
-    <p class="roll-lead rv">Started casual Sep 2024. <b>Brenda Smith</b> built my On1 foundation. Since then, advanced bachata with <b>Carlitos &amp; Cece</b> and intermediate On1 partnering with <b>Lawrence Garcia</b>. Then I booked privates with <b>Leela at Cavallo Dance AZ</b> to clean up fundamentals, and stepped straight into their intermediate and advanced salsa. Those dancers are legit, for real. I keep a video log and rate every combo honestly: comfortable, mixed, or <b>got rolled</b>. Here is where it broke - and where it is already clicking.</p>
-
-    <div class="roll-sub rv">The receipts</div>
-    <div class="trip-grid rv" style="margin-top:14px">
-      <div class="card">
-        <span class="tag rolled">GOT ROLLED</span>
-        <div class="kd">Salsa On1 &middot; Feb 11</div>
-        <h3>Toss + rockstep</h3>
-        <div class="sub">Cross-body to hand toss with a simultaneous rockstep, into a behind-the-back toss.</div>
-        <dl><dt>Where it broke</dt><dd>Toss on the rockstep timing</dd><dt>Self-rating</dt><dd>Got rolled</dd></dl>
-      </div>
-      <div class="card">
-        <span class="tag rolled">GOT ROLLED</span>
-        <div class="kd">Salsa On1 &middot; Mar 25</div>
-        <h3>Hammerlock chain</h3>
-        <div class="sub">Lady's hammerlock into cuddle style. Came back from a month off and lost the back half.</div>
-        <dl><dt>Where it broke</dt><dd>Everything after the cuddle</dd><dt>Self-rating</dt><dd>Completely rolled</dd></dl>
-      </div>
-      <div class="card">
-        <span class="tag" style="background:var(--gold);color:#2a1c00">THE FIX</span>
-        <div class="kd">Cavallo Dance AZ</div>
-        <h3>Back to basics</h3>
-        <div class="sub">Privates with Leela, Jul 8 &amp; 10. Cleaned the fundamentals, then took the intermediate and advanced salsa rooms.</div>
-        <dl><dt>Result</dt><dd>Humbled, sharper</dd><dt>Next</dt><dd>The 6-week brief</dd></dl>
-      </div>
-    </div>
-
-    <div class="roll-sub rv">The four leaks</div>
-    <div class="leaks rv">
-      <div class="leak"><div class="n">3.1</div><h4>Reading the follow</h4><p>Mid-dance I size up the follow and, if she can't match a move, I collapse all the way back to my old Fast-Track combo. That kills the groove. I need wider reads and outs.</p></div>
-      <div class="leak"><div class="n">3.2</div><h4>Rockstep &amp; cumbia-step footwork</h4><p>Cross-body footwork is solid. I lose it on figures that need a rockstep or cumbia step - switch-hand turns and hammerlock entries have their own footwork and I drop it.</p></div>
-      <div class="leak"><div class="n">3.3</div><h4>Clarity vs aggression</h4><p>On demanding combos I always err soft because follows complain about aggressive leads. I want the actual line: clean and readable at high difficulty without going limp.</p></div>
-      <div class="leak"><div class="n">3.4</div><h4>Advanced hand tosses</h4><p>Behind-the-back, toss-with-a-rockstep, toss-into-turn. Still sharpening the timing. The behind-the-follow sequence, a Lawrence combo I drilled with Leela, is already one of my most comfortable, so the base for this is there.</p></div>
-    </div>
-
-    <div class="roll-sub win rv">The comeback</div>
-    <p class="roll-lead rv" style="margin-top:10px;margin-bottom:20px">Already clicking. New vocabulary is going in fast, and every combo gets filmed the night I learn it. The whole bank, broken down move by move, lives in <a href="#lab" style="color:var(--teal);text-decoration:underline">The Lab</a> below.</p>
-  </div>
-</section>
-
-<!-- THE LAB -->
-<style>
-  #lab{background:rgba(14,29,51,.60)}
-  .lab-lead{max-width:700px;color:#c6d3e5;font-size:18px;margin-top:-24px;margin-bottom:34px}
-  .lab-lead b{color:var(--white)}
-  .lab-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:40px}
-  @media(max-width:640px){.lab-stats{grid-template-columns:1fr}}
-  .lstat{border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;background:rgba(255,255,255,.03)}
-  .lstat .n{font-family:var(--display);font-weight:800;font-size:34px;color:var(--teal);line-height:1}
-  .lstat .t{font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:.08em;text-transform:uppercase}
-  #lab .clips{grid-template-columns:repeat(3,1fr)}
-  @media(max-width:900px){#lab .clips{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:640px){#lab .clips{grid-template-columns:1fr}}
   .arch{display:inline-block;margin-left:10px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;vertical-align:middle}
   .fold{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);padding:0 24px}
   .fold>summary{cursor:pointer;list-style:none;padding:22px 0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px}
@@ -855,118 +772,79 @@
   .fold[open]>summary{border-bottom:1px solid var(--line);margin-bottom:26px}
   .fold[open]>summary::after{content:"\2212"}
   .fold>*:last-child{margin-bottom:26px}
+  #training{background:rgba(14,29,51,.60)}
+  .arcstats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0 40px}
+  @media(max-width:820px){.arcstats{grid-template-columns:1fr 1fr}}
+  .lstat{border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;background:rgba(255,255,255,.03)}
+  .lstat .n{font-family:var(--display);font-weight:800;font-size:34px;color:var(--teal);line-height:1}
+  .lstat .t{font-size:12px;color:var(--muted);margin-top:8px;letter-spacing:.08em;text-transform:uppercase;line-height:1.35}
+  .arc-lead{max-width:720px;color:#c6d3e5;font-size:18px;margin-top:-24px;margin-bottom:8px}
+  .arc-lead b{color:var(--white)}
 </style>
-<section id="lab">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div>
-        <div class="idx">04 / THE LAB <span class="arch">Archived</span></div>
-        <h2>The combo bank.</h2>
-      </div>
-      <p>Filmed through July and August on the way to Waikiki. The work is done, the tape stays here.</p>
-    </div>
-    <details class="fold rv">
-    <summary><span>Open the combo bank</span><small>13 clips, move chains, the daily streak</small></summary>
-    <p class="lab-lead rv">Through July I was on a floor <b>3 to 4 nights a week</b>. Since July 21 it has been <b>every single day</b>. This is where the reps land: combos I'm drilling plus the demo runs I film so the material never slips. Each clip carries its move chain, same breakdown style as the dance brief appendix.</p>
-    <div class="lab-stats rv">
-      <div class="lstat"><div class="n">3-4</div><div class="t">nights a week &middot; July</div></div>
-      <div class="lstat"><div class="n"><span id="streak">--</span></div><div class="t">day streak &middot; every day since Jul 21</div></div>
-      <div class="lstat"><div class="n">13</div><div class="t">clips in the bank</div></div>
-    </div>
-    <div class="clips rv">
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/IMG_5871.jpg">
-          <source src="clips/IMG_5871.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 01 &middot; Jul 14 &middot; Salsa</b> - cross-body &rarr; inside turn &rarr; copa &rarr; faceloop &rarr; dip &rarr; squat-flair finish. Spotlight run with the class watching. Drilled across Tuesday and Thursday reps.</figcaption>
-      </figure>
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/IMG_5878.jpg">
-          <source src="clips/IMG_5878.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 02 &middot; Jul 16 &middot; Salsa</b> - lady's turn &rarr; hand toss &rarr; cross-body &rarr; cuddle wrap &rarr; open break + rockstep &rarr; free spins &rarr; hammerlock exit. Locked the same week.</figcaption>
-      </figure>
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/IMG_5888.jpg">
-          <source src="clips/IMG_5888.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 03 &middot; Jul 21 &middot; Salsa</b> - inside turn &rarr; shadow position &rarr; cross-body &rarr; open-break toss &rarr; cuddle wrap &rarr; copa exit. Night one of the every-day streak.</figcaption>
-      </figure>
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/IMG_5893.jpg">
-          <source src="clips/IMG_5893.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 04 &middot; Jul 23 &middot; Salsa</b> - double-hand overhead turn &rarr; free spin &rarr; hammerlock &rarr; cuddle wrap &rarr; faceloop pass &rarr; hand-toss finish.</figcaption>
-      </figure>
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/July 27 2026.jpg">
-          <source src="clips/July 27 2026.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 05 &middot; Jul 27 &middot; Bachata</b> - follows' styling drill: side basic &rarr; hip roll &rarr; lunge sweep &rarr; body roll &rarr; low pose. Footwork and styling reference, no partnering. Streak night seven.</figcaption>
-      </figure>
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/July 27 2026 - 2.jpg">
-          <source src="clips/July 27 2026 - 2.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 06 &middot; Jul 27 &middot; Bachata</b> - double-hand turn &rarr; cuddle wrap &rarr; faceloop &rarr; forward fold &rarr; unroll. Walked through in reps with coaching pauses. Longest run in the bank.</figcaption>
-      </figure>
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/IMG_5911.jpg">
-          <source src="clips/IMG_5911.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 07 &middot; Jul 28 &middot; Bachata</b> - inside turn &rarr; close-embrace wrap &rarr; lady's turn &rarr; behind-the-back wrap &rarr; low close pose. Instructor demo, sensual style. Streak night eight.</figcaption>
-      </figure>
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/July 28 2026.jpg">
-          <source src="clips/July 28 2026.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 08 &middot; Jul 28 &middot; Bachata</b> - lady's turn &rarr; shadow wrap &rarr; back lean &rarr; free turn &rarr; low drop into body wave. Demo run, center floor.</figcaption>
-      </figure>
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/July 28 2026 - 2.jpg">
-          <source src="clips/July 28 2026 - 2.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 09 &middot; Jul 28 &middot; Bachata</b> - shadow wrap &rarr; side-lean dip &rarr; faceloop turn &rarr; free spin &rarr; cradle dip finish. Full showcase run, closed the night.</figcaption>
-      </figure>
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/combo_10.jpg">
-          <source src="clips/combo_10.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 10 &middot; Salsa</b> - cross-body &rarr; free turn &rarr; sweetheart wrap &rarr; touch-and-go palms &rarr; double-hand turn &rarr; free spin. Patio drill from a class night.</figcaption>
-      </figure>
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/IMG_0287.jpg">
-          <source src="clips/IMG_0287.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 11 &middot; Salsa</b> - open break &rarr; cross-body &rarr; lady's turn. Class rotation clip, same patio night.</figcaption>
-      </figure>
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/IMG_0288.jpg">
-          <source src="clips/IMG_0288.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 12 &middot; Salsa</b> - open break &rarr; inside turn &rarr; faceloop &rarr; wrapped turn &rarr; lead's self-turn exit. The full class combo, drilled on repeat.</figcaption>
-      </figure>
-      <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/IMG_0289.jpg">
-          <source src="clips/IMG_0289.mp4" type="video/mp4">
-        </video>
-        <figcaption><b>Combo 13 &middot; Salsa</b> - wide shot: the whole floor hits the same double-hand turn together.</figcaption>
-      </figure>
-    </div>
-    </details>
-  </div>
-</section>
 
 <!-- TRAINING BRIEF -->
 <section id="training">
  <div class="wrap">
  <div class="sec-head rv">
  <div>
- <div class="idx">05 / THE FIX <span class="arch">Complete</span></div>
- <h2>Six weeks to sharp.</h2>
+ <div class="idx">03 / THE ARC</div>
+ <h2>How I got ready.</h2>
  </div>
- <p>Ran Jul 20 through Sep 2. Every week landed, so the plan is history now, not a to-do list.</p>
+ <p>Two years in, Cavallo's advanced room exposed the gaps. Everything below is what closing them actually took.</p>
  </div>
+ <p class="arc-lead rv">Started at the bottom of the advanced room in July and trained it out. <b>Nine private lessons, seven nights a week on a floor, and a six-week plan that ran to the day.</b> Here is the cost and the calendar behind it.</p>
+ <div class="arcstats rv">
+  <div class="lstat"><div class="n">9</div><div class="t">private lessons</div></div>
+  <div class="lstat"><div class="n">$957</div><div class="t">spent on training</div></div>
+  <div class="lstat"><div class="n"><span id="streak">--</span></div><div class="t">days since Jul 21</div></div>
+  <div class="lstat"><div class="n">7</div><div class="t">nights a week</div></div>
+ </div>
+
+ <h3 class="hub-sub rv" style="margin-top:0">The week, on repeat</h3>
+ <p class="grid-note rv">The plan above was the six-week shape. This is the actual weekly cadence underneath it, and it has not changed since July.</p>
+ <div class="wkly rv">
+  <div class="wrow"><span class="wd">Mon</span><span class="wv">Phoenix Bachata Dance</span><span class="ww">Footwork and social dance class</span></div>
+  <div class="wrow"><span class="wd">Tue</span><span class="wv">Cavallo or PBD</span><span class="ww">Intermediate salsa, or intermediate and advanced bachata</span></div>
+  <div class="wrow"><span class="wd">Wed</span><span class="wv">Phoenix Bachata Dance</span><span class="ww">Beginner to intermediate Rueda de Casino, then the mini social</span></div>
+  <div class="wrow"><span class="wd">Thu</span><span class="wv">PBD or Cavallo</span><span class="ww">Advanced bachata or advanced salsa</span></div>
+  <div class="wrow"><span class="wd">Fri</span><span class="wv">Social</span><span class="ww">Provision Nights at PBD once a month, otherwise Diablo Rooftop or Pacifico</span></div>
+  <div class="wrow"><span class="wd">Sat</span><span class="wv">Social</span><span class="ww">Tempo at Dave &amp; Buster's, or Bachata Addiction</span></div>
+  <div class="wrow"><span class="wd">Sun</span><span class="wv">Social</span><span class="ww">Havana Nights at Dave &amp; Buster's</span></div>
+ </div>
+ <p class="led-note rv">Running since <b>Jul 21</b> and close to unbroken. The one real gap was the Vancouver week in early August: danced the Monday before flying out, found Baza out there and went to their socials on <b>Aug 4 and Aug 7</b>, then picked it straight back up the Sunday I landed. Lost one Wednesday mid-month. That is the whole list.</p>
+
+ <h3 class="hub-sub rv">What the prep cost</h3>
+ <p class="grid-note rv">Every private and every floor night that went into showing up ready. Straight off the Venmo and Square records, not memory.</p>
+ <div class="led rv">
+  <div class="lrow lhead"><span>What</span><span>When</span><span>Amount</span></div>
+  <div class="lgrp">Carlitos &amp; Cece &middot; privates</div>
+  <div class="lrow"><span>Two privates, Aug 15 and Aug 22</span><span>Paid Aug 11</span><span>$192.00</span></div>
+  <div class="lrow"><span>Two privates, Aug 25 and Aug 29</span><span>Paid Aug 23</span><span>$192.00</span></div>
+  <div class="lrow lsub"><span>Four privates at $96 each</span><span></span><span>$384.00</span></div>
+  <div class="lgrp">Leela &middot; Cavallo Dance AZ &middot; $85 a private</div>
+  <div class="lrow"><span>Intro pair, billed as 2 lessons <em>#lkTd</em></span><span>Jul 2, Afterpay in 4, closed Aug 22</span><span>$108.01</span></div>
+  <div class="lrow"><span>Two more sessions <em>#ZSLA</em></span><span>Jul 14</span><span>$180.00</span></div>
+  <div class="lrow"><span>One private <em>#lu41</em></span><span>Aug 3</span><span>$85.00</span></div>
+  <div class="lrow"><span>One private <em>#pguq</em></span><span>Aug 18</span><span>$85.00</span></div>
+  <div class="lrow lsub"><span>Five lessons on the books</span><span></span><span>$458.01</span></div>
+  <div class="lgrp">Floors and socials</div>
+  <div class="lrow"><span>Bachata, Cumbia y Salsa, socials</span><span>May 29 to Aug 21, five nights</span><span>$115.00</span></div>
+  <div class="lrow ltot"><span>Prep total</span><span></span><span>$957.01</span></div>
+ </div>
+ <p class="led-note rv">A private with Leela runs <b>$85</b>, and the Aug 3 and Aug 18 receipts land on it exactly. The first charge was the cheap one: <b>$108.01 on Jul 2, itemized as two lessons</b>, which is the intro pair on Jul 8 and Jul 10. The $180 on Jul 14 covers two more. Payments run ahead of the sessions, so read these dates as the training timeline rather than the lesson dates. Five booked through Square: Jul 8, Jul 10, Aug 10, Aug 17, Aug 25.</p>
+
+ <h3 class="hub-sub rv">What it took on the calendar</h3>
+ <p class="grid-note rv">Six privates got blocked as real calendar events, five hours forty five minutes of booked one-on-one time. The other three were booked through Square without a calendar hold.</p>
+ <div class="wkly rv">
+  <div class="wrow"><span class="wd">Jul 8</span><span class="wv">5:30 to 6:15p</span><span class="ww">Intro lesson, Cavallo Dance AZ</span></div>
+  <div class="wrow"><span class="wd">Aug 15</span><span class="wv">12:00 to 1:00p</span><span class="ww">Bachata private, Carlitos</span></div>
+  <div class="wrow"><span class="wd">Aug 22</span><span class="wv">12:00 to 1:00p</span><span class="ww">Bachata private, Carlitos</span></div>
+  <div class="wrow"><span class="wd">Aug 25</span><span class="wv">4:45 to 5:45p</span><span class="ww">Salsa private, Cavallo</span></div>
+  <div class="wrow"><span class="wd">Aug 25</span><span class="wv">7:00 to 8:00p</span><span class="ww">Bachata private, Carlitos. Two lessons that day.</span></div>
+  <div class="wrow"><span class="wd">Aug 29</span><span class="wv">2:30 to 3:30p</span><span class="ww">Bachata private, Carlitos</span></div>
+ </div>
+ <p class="led-note rv">The privates are the part that shows up on a calendar. The weekly classes and socials never got blocked, they just happen, and at roughly four class nights and three social nights a week that is the far bigger share of the hours.</p>
+
  <details class="fold rv">
  <summary><span>Open the six-week plan</span><small>Week by week, salsa and bachata, the drills that ran</small></summary>
  <p class="brief-lead rv">Roughly 45 days to the first social. Enough to close the gaps Cavallo exposed: the rockstep footwork, the reads that keep me from collapsing to my old default, the clarity-vs-aggression line, and the hand tosses that rolled me twice. The rule: 30-45 minutes a day, two partner sessions a week, hit a real floor whenever one exists. Foundation first, flash last.</p>
@@ -1076,6 +954,17 @@
   }
   .led-note{margin-top:16px;font-size:13.5px;color:var(--muted);max-width:660px;line-height:1.6}
   .led-note b{color:var(--white)}
+  .wkly{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);overflow:hidden}
+  .wrow{display:grid;grid-template-columns:60px 190px 1fr;gap:18px;padding:14px 22px;align-items:baseline;border-top:1px solid rgba(255,255,255,.07);font-size:13.5px}
+  .wrow:first-child{border-top:0}
+  .wd{font-family:var(--display);font-weight:800;font-size:14px;color:var(--gold);letter-spacing:.04em}
+  .wv{color:var(--white);font-weight:500}
+  .ww{color:var(--muted);line-height:1.5}
+  @media(max-width:760px){
+    .wrow{grid-template-columns:52px 1fr;gap:3px 14px;padding:14px 18px}
+    .wd{grid-row:span 2}
+    .ww{grid-column:2}
+  }
   .lrow em{font-style:normal;color:var(--muted);opacity:.65;font-size:11.5px;letter-spacing:.06em;margin-left:6px}
   .total-card.wide{margin-top:44px;max-width:none}
 </style>
@@ -1083,7 +972,7 @@
  <div class="wrap">
  <div class="sec-head rv">
  <div>
- <div class="idx">06 / THE DAMAGE</div>
+ <div class="idx">04 / THE DAMAGE</div>
  <h2>What it runs.</h2>
  </div>
  <p>Booked and paid, no guesses. Food and rides are left out on purpose so this number stays honest.</p>
@@ -1101,25 +990,7 @@
  </div>
  </div>
 
- <h3 class="hub-sub rv">What the prep cost</h3>
- <p class="grid-note rv">Every private and every floor night that went into showing up ready. Straight off the Venmo and Square records, not memory.</p>
- <div class="led rv">
-  <div class="lrow lhead"><span>What</span><span>When</span><span>Amount</span></div>
-  <div class="lgrp">Carlitos &amp; Cece &middot; privates</div>
-  <div class="lrow"><span>Two privates, Aug 15 and Aug 22</span><span>Paid Aug 11</span><span>$192.00</span></div>
-  <div class="lrow"><span>Two privates, Aug 25 and Aug 29</span><span>Paid Aug 23</span><span>$192.00</span></div>
-  <div class="lrow lsub"><span>Four privates at $96 each</span><span></span><span>$384.00</span></div>
-  <div class="lgrp">Leela &middot; Cavallo Dance AZ &middot; $85 a private</div>
-  <div class="lrow"><span>Intro pair, billed as 2 lessons <em>#lkTd</em></span><span>Jul 2, Afterpay in 4, closed Aug 22</span><span>$108.01</span></div>
-  <div class="lrow"><span>Two more sessions <em>#ZSLA</em></span><span>Jul 14</span><span>$180.00</span></div>
-  <div class="lrow"><span>One private <em>#lu41</em></span><span>Aug 3</span><span>$85.00</span></div>
-  <div class="lrow"><span>One private <em>#pguq</em></span><span>Aug 18</span><span>$85.00</span></div>
-  <div class="lrow lsub"><span>Five lessons on the books</span><span></span><span>$458.01</span></div>
-  <div class="lgrp">Floors and socials</div>
-  <div class="lrow"><span>Bachata, Cumbia y Salsa, socials</span><span>May 29 to Aug 21, five nights</span><span>$115.00</span></div>
-  <div class="lrow ltot"><span>Prep total</span><span></span><span>$957.01</span></div>
- </div>
- <p class="led-note rv">A private with Leela runs <b>$85</b>, and the Aug 3 and Aug 18 receipts land on it exactly. The first charge was the cheap one: <b>$108.01 on Jul 2, itemized as two lessons</b>, which is the intro pair on Jul 8 and Jul 10. The $180 on Jul 14 covers two more. Payments run ahead of the sessions, so read these dates as the training timeline rather than the lesson dates. Five booked through Square: Jul 8, Jul 10, Aug 10, Aug 17, Aug 25.</p>
+
 
  <div class="total-card wide rv">
   <div class="k">Trip plus prep</div>
@@ -1162,7 +1033,7 @@
  }
  tick(); setInterval(tick, 1000);
 
- // dance streak: every day since Jul 21
+ // days since the run started on Jul 21 (near daily, not a strict streak)
  var streakEl = document.getElementById('streak');
  if (streakEl){
  var labStart = new Date("2026-07-21T00:00:00-07:00").getTime();
@@ -1187,13 +1058,17 @@
  if (!el || typeof L === 'undefined') { return; }
  var hyatt = [21.2765, -157.8264], aloha = [21.2960, -157.8514];
  var map = L.map(el, {zoomControl:true, scrollWheelZoom:false, attributionControl:true});
- L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
- {attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:19}).addTo(map);
+ // Esri imagery needs no API key and Waikiki from above is already the tropical palette
+ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+ {attribution:'Tiles &copy; Esri, Maxar, Earthstar Geographics', maxZoom:19}).addTo(map);
+ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+ {maxZoom:19, opacity:.85}).addTo(map);
  function pin(color){
- return L.divIcon({className:'', iconSize:[16,16], iconAnchor:[8,8], popupAnchor:[0,-10],
- html:'<div style="width:16px;height:16px;background:'+color+';border-radius:50%;border:2px solid #0a1526;box-shadow:0 0 12px '+color+'"></div>'});
+ return L.divIcon({className:'', iconSize:[18,18], iconAnchor:[9,9], popupAnchor:[0,-11],
+ html:'<div style="width:18px;height:18px;background:'+color+';border-radius:50%;border:2.5px solid rgba(255,255,255,.95);box-shadow:0 0 0 2px rgba(6,20,34,.55),0 0 16px '+color+'"></div>'});
  }
- L.polyline([hyatt, aloha], {color:'#ffc35a', weight:2, opacity:.55, dashArray:'6 7'}).addTo(map);
+ L.polyline([hyatt, aloha], {color:'#ffffff', weight:4, opacity:.55, dashArray:'2 9', lineCap:'round'}).addTo(map);
+ L.polyline([hyatt, aloha], {color:'#ffc35a', weight:2, opacity:.95, dashArray:'7 8'}).addTo(map);
  L.marker(hyatt, {icon:pin('#ff6b4a')}).addTo(map)
  .bindPopup('<b>Hyatt Regency Waikiki</b><br>2424 Kalakaua Ave<br>Your room and the main ballroom');
  L.marker(aloha, {icon:pin('#ffc35a')}).addTo(map)
