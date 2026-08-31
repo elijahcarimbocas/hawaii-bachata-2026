@@ -17,6 +17,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Space+Grotesk:wght@400;500;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 <style>
  :root{
  --night:#0a1526; --night2:#0e1d33; --panel:#12233c; --line:rgba(255,255,255,.12);
@@ -169,10 +171,11 @@
  <div class="logo">HSBP<b>.</b>26</div>
  <ul>
  <li><a href="#festival">The Festival</a></li>
- <li><a href="#trip">The Trip</a></li>
+ <li><a href="#trip">The Hub</a></li>
+ <li><a href="#schedule">Schedule</a></li>
+ <li><a href="#fits">The Fits</a></li>
  <li><a href="#rolled">The Humbling</a></li>
- <li><a href="#lab">The Lab</a></li>
- <li><a href="#training">Training</a></li>
+ <li><a href="#lab">Archive</a></li>
  <li><a href="#numbers">Numbers</a></li>
  </ul>
  </div>
@@ -240,16 +243,25 @@
       <span class="chip">Rico Paris</span>
       <span class="chip more">+ a full international lineup</span>
     </div>
-    <div class="fbtns rv">
-      <a class="fbtn primary" href="https://www.eventbrite.com/e/9th-annual-hawaii-salsa-bachata-paradise-tickets-1645540789799?aff=erelexpmlt" target="_blank" rel="noopener">Buy Tickets &rarr;</a>
-      <a class="fbtn ig" href="https://www.instagram.com/hawaiisalsabachataparadise" target="_blank" rel="noopener">Follow on Instagram</a>
-      <a class="fbtn ghost" href="https://hawaiisalsabachataparadise.com/" target="_blank" rel="noopener">Official Site</a>
-    </div>
-    <p class="come rv">Rolling with me? <b>DM "HAWAII"</b> on their Instagram for the team rate - $175 instead of $250 at the door.</p>
   </div>
 </section>
 
 <!-- TRIP -->
+<style>
+  .hub-sub{font-family:var(--display);font-weight:800;font-size:22px;color:var(--gold);margin:52px 0 18px}
+  .recs{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+  @media(max-width:820px){.recs{grid-template-columns:1fr;gap:0}}
+  .rec{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--line);align-items:start}
+  .rk{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;padding-top:3px}
+  .rec .rv2 b{display:block;font-family:var(--display);font-weight:800;font-size:16px;color:var(--white);margin-bottom:5px;line-height:1.25}
+  .rec .rv2 span{display:block;font-size:13.5px;color:var(--muted);line-height:1.55}
+  .open{margin-top:48px;border:1px solid rgba(255,107,74,.34);border-radius:16px;padding:26px 28px;background:rgba(255,107,74,.06)}
+  .oh{font-family:var(--display);font-weight:800;font-size:18px;color:var(--coral);margin-bottom:14px}
+  .olist{list-style:none;counter-reset:o;display:grid;gap:13px}
+  .olist li{counter-increment:o;position:relative;padding-left:32px;font-size:14px;color:#c6d3e5;line-height:1.6}
+  .olist li::before{content:counter(o);position:absolute;left:0;top:1px;width:21px;height:21px;border-radius:50%;border:1px solid rgba(255,107,74,.5);color:var(--coral);font-size:11px;font-weight:700;display:grid;place-items:center}
+  .olist b{color:var(--white)}
+</style>
 <section id="trip">
  <div class="wrap">
  <div class="sec-head rv">
@@ -296,10 +308,113 @@
  <div class="big">$175</div>
  </div>
  </div>
+
+ <h3 class="hub-sub rv">Everything in one place</h3>
+ <div class="recs rv">
+  <div class="rec">
+   <div class="rk">Flight</div>
+   <div class="rv2"><b>Alaska CCFJCR</b><span>AS 835 out Thu Sep 3, 8:05a PHX to 11:59a HNL. AS 836 home Mon Sep 7, 11:10a HNL to 8:07p PHX. Both direct, booked through Hawaiian.</span></div>
+  </div>
+  <div class="rec">
+   <div class="rk">Flight pay</div>
+   <div class="rv2"><b>Uplift 263013622366</b><span>$144.82 a month, four total, autopay on and reporting to the bureaus. One cleared at booking, the next was due Aug 20. Support 844-257-5400.</span></div>
+  </div>
+  <div class="rec">
+   <div class="rk">Hotel</div>
+   <div class="rv2"><b>Hyatt Regency Waikiki, conf 52734945</b><span>2424 Kalakaua Ave, 808-923-1234. King, high floor, city view, balcony. In Sep 3 at 3p (early check-in requested), out Sep 7 at 11a. Group rate G-OSB6 at $259 a night, resort fee cut to $10. Free cancel to 72 hours out.</span></div>
+  </div>
+  <div class="rec">
+   <div class="rk">Hotel pay</div>
+   <div class="rv2"><b>Card ending 0971, not charged until check-in</b><span>Swap to the new debit card through the Modify Booking link in the Hyatt email or the app. Never send the number by email, Hyatt says so themselves.</span></div>
+  </div>
+  <div class="rec">
+   <div class="rk">Festival</div>
+   <div class="rv2"><b>Team rate paid, $175</b><span>Venmo to Carlos Jakobs on Jul 19, memo "Hawaii Salsa Bachata Paradise Ticket", completed. Door price is $275 for a full pass now. Bring the Venmo receipt to hotel check-in, the group rate can ask for festival proof.</span></div>
+  </div>
+  <div class="rec">
+   <div class="rk">Venues</div>
+   <div class="rv2"><b>Two rooms, one commute</b><span>Thursday pre-party is at Aloha DanceSport Center, offsite. Friday through Sunday all run in the Hyatt ballroom, which is the hotel you are sleeping in.</span></div>
+  </div>
+ </div>
+
+ <div class="open rv">
+  <div class="oh">Still open</div>
+  <ol class="olist">
+   <li><b>Valeria has not sent the tickets.</b> Nothing from her in the inbox, spam, or trash, so the email never landed. Chase her and give her the address again before you fly.</li>
+   <li><b>Swap the card on the Hyatt booking by Sep 1.</b> Payment locks two days out from a Sep 3 arrival. Miss it and you just hand the desk the new card at check-in.</li>
+   <li><b>Sunday night runs to 2 AM and checkout is 11 AM Monday</b> with the flight at 11:10. Pack before you go out Sunday or that morning gets ugly.</li>
+  </ol>
+ </div>
  </div>
 </section>
 
 <!-- SCHEDULE -->
+<style>
+  .themes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+  @media(max-width:760px){.themes{grid-template-columns:1fr}}
+  .theme{border:1px solid var(--line);border-radius:16px;padding:22px;background:rgba(255,255,255,.02);border-top-width:3px}
+  .theme.t-fri{border-top-color:var(--teal)}
+  .theme.t-sat{border-top-color:var(--gold)}
+  .theme.t-sun{border-top-color:var(--sand)}
+  .theme .tn{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .theme .tt{font-family:var(--display);font-weight:800;font-size:24px;margin:6px 0 8px}
+  .theme p{font-size:13.5px;color:var(--muted);line-height:1.55}
+  .theme-note{margin-top:18px;font-size:13.5px;color:var(--muted);max-width:640px}
+  .grid-note{font-size:14px;color:var(--muted);max-width:640px;margin:-8px 0 20px}
+  .dayx{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);margin-bottom:12px;overflow:hidden}
+  .dayx summary{cursor:pointer;list-style:none;padding:20px 24px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;transition:background .2s}
+  .dayx summary::-webkit-details-marker{display:none}
+  .dayx summary:hover{background:rgba(255,255,255,.03)}
+  .dayx summary::after{content:"+";margin-left:auto;font-family:var(--display);font-weight:800;font-size:22px;color:var(--muted);line-height:1}
+  .dayx[open] summary::after{content:"\2212"}
+  .dayx[open] summary{border-bottom:1px solid var(--line)}
+  .dx-d{font-family:var(--display);font-weight:800;font-size:19px;color:var(--white)}
+  .dx-t{font-size:13px;color:var(--gold)}
+  .dx-body{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;padding:8px 24px 4px}
+  .dx-body.one{grid-template-columns:1fr}
+  @media(max-width:760px){.dx-body{grid-template-columns:1fr;gap:0}}
+  .rm{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin:16px 0 4px}
+  .rm.b{color:var(--coral)}
+  .rm.s{color:var(--teal)}
+  .slots{list-style:none;display:grid}
+  .slots li{display:grid;grid-template-columns:92px 1fr;gap:14px;padding:9px 0;border-top:1px solid rgba(255,255,255,.07);font-size:13.5px;line-height:1.5}
+  .slots i{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums;font-size:12.5px;padding-top:1px}
+  .slots span{color:#c6d3e5}
+  .slots em{font-style:normal;display:block;font-size:11.5px;color:var(--coral);margin-top:2px}
+  .slots.wide{margin:14px 24px 22px;border-top:1px solid var(--line);padding-top:6px}
+  .slots.wide span{color:var(--white)}
+
+  /* pre-party map */
+  .mapblock{margin:14px 0 12px}
+  .mapx{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);overflow:hidden}
+  .mhead{padding:24px 24px 18px}
+  .mhead h4{font-family:var(--display);font-weight:800;font-size:20px;margin-bottom:7px}
+  .mhead p{font-size:13.5px;color:var(--muted);line-height:1.55;max-width:620px}
+  #map{height:340px;width:100%;background:var(--night2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  @media(max-width:640px){#map{height:280px}}
+  .mlegend{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;padding:6px 24px 0}
+  @media(max-width:760px){.mlegend{grid-template-columns:1fr;gap:0}}
+  .mleg{display:flex;gap:12px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+  .mleg div{font-size:13px;color:var(--muted);line-height:1.5}
+  .mleg b{display:block;color:var(--white);font-family:var(--display);font-weight:800;font-size:15px;margin-bottom:3px}
+  .mdot{width:13px;height:13px;border-radius:50%;flex:none;margin-top:4px}
+  .mdot.home{background:var(--coral);box-shadow:0 0 10px rgba(255,107,74,.7)}
+  .mdot.away{background:var(--gold);box-shadow:0 0 10px rgba(255,195,90,.7)}
+  .mfoot{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:20px 24px 24px}
+  @media(max-width:760px){.mfoot{grid-template-columns:1fr 1fr}}
+  .mfact b{display:block;font-family:var(--display);font-weight:800;font-size:19px;color:var(--teal)}
+  .mfact span{display:block;font-size:12px;color:var(--muted);margin-top:3px;line-height:1.4}
+  .leaflet-container{background:var(--night2)}
+  .leaflet-popup-content-wrapper{background:var(--panel);color:var(--white);border-radius:12px;border:1px solid var(--line)}
+  .leaflet-popup-tip{background:var(--panel)}
+  .leaflet-popup-content{margin:12px 16px;font-size:13px;line-height:1.5;font-family:var(--body)}
+  .leaflet-popup-content b{color:var(--gold);font-family:var(--display)}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--muted)}
+  .leaflet-control-attribution{background:rgba(10,21,38,.72)!important;color:var(--muted)!important;font-size:10px}
+  .leaflet-control-attribution a{color:var(--teal)!important}
+  .leaflet-bar a{background:var(--panel);color:var(--white);border-bottom-color:var(--line)}
+  .leaflet-bar a:hover{background:var(--night2);color:var(--white)}
+</style>
 <section id="schedule">
  <div class="wrap">
  <div class="sec-head rv">
@@ -310,12 +425,223 @@
  <p>Workshops by day, beach parties at dusk, socials past 2 AM. Monday is Labor Day - a free recovery day before the red-eye home.</p>
  </div>
  <div class="tl">
- <div class="day rv"><div class="d">Day 1</div><div class="dt">Thu, Sep 3</div><ul><li>Registration 8a</li><li>Land HNL noon</li><li>Pre-party night</li></ul></div>
- <div class="day rv"><div class="d">Day 2</div><div class="dt">Fri, Sep 4</div><ul><li>Workshops 9-4</li><li>Beach party 5-7</li><li>Social 11p-2a</li></ul></div>
- <div class="day rv"><div class="d">Day 3</div><div class="dt">Sat, Sep 5</div><ul><li>Workshops 9-4</li><li>Beach party 5-7</li><li>Social 11p-2a</li></ul></div>
- <div class="day rv"><div class="d">Day 4</div><div class="dt">Sun, Sep 6</div><ul><li>Workshops 9-5</li><li>Beach party 5-7</li><li>Social 11p-1a</li></ul></div>
- <div class="day buffer rv"><div class="d">Buffer</div><div class="dt">Mon, Sep 7</div><ul><li>Labor Day</li><li>Beach + recover</li><li>Fly home 11:10a</li></ul></div>
+ <div class="day rv"><div class="d">Day 1</div><div class="dt">Thu, Sep 3</div><ul><li>Land HNL 11:59a</li><li>Registration 8p</li><li>Social to 1a</li></ul></div>
+ <div class="day rv"><div class="d">Day 2</div><div class="dt">Fri, Sep 4</div><ul><li>Workshops 9-4</li><li>Beach party 4:30-7</li><li>Social 10:30p-2a</li></ul></div>
+ <div class="day rv"><div class="d">Day 3</div><div class="dt">Sat, Sep 5</div><ul><li>Workshops 9-4</li><li>Beach party 5-7</li><li>Social 10:30p-2a</li></ul></div>
+ <div class="day rv"><div class="d">Day 4</div><div class="dt">Sun, Sep 6</div><ul><li>Workshops 10-4</li><li>Beach party 5-7</li><li>Social 10:30p-2a</li></ul></div>
+ <div class="day buffer rv"><div class="d">Buffer</div><div class="dt">Mon, Sep 7</div><ul><li>Labor Day</li><li>Check out 11a</li><li>Fly home 11:10a</li></ul></div>
  </div>
+
+ <div class="themes rv">
+  <div class="theme t-fri"><div class="tn">Friday</div><div class="tt">Tropical</div><p>Island colors and prints. Loudest shirt you own.</p></div>
+  <div class="theme t-sat"><div class="tn">Saturday</div><div class="tt">Gala night</div><p>Dress it up. The one night to look sharp, not just cool.</p></div>
+  <div class="theme t-sun"><div class="tn">Sunday</div><div class="tt">All white</div><p>Head to toe white for the closing social.</p></div>
+ </div>
+ <p class="theme-note rv">Thursday's pre-party has no theme. Beach parties run in the late afternoon, so swimwear is a real packing item and not a maybe.</p>
+
+ <h3 class="hub-sub rv">The full grid</h3>
+ <p class="grid-note rv">Straight off the official schedule they posted Aug 29. Two rooms run in parallel all weekend, so you are picking one and skipping the other most hours.</p>
+
+ <details class="dayx rv">
+  <summary><span class="dx-d">Thu, Sep 3</span><span class="dx-t">Pre-party at Aloha DanceSport Center</span></summary>
+  <div class="dx-body one">
+   <div class="room">
+    <ul class="slots">
+     <li><i>8:00p</i><span>Registration</span></li>
+     <li><i>8:30-9:30p</i><span>Catalina, Master Your Bachata Connection, all levels</span></li>
+     <li><i>9:30p-1:00a</i><span>Social dancing</span></li>
+    </ul>
+   </div>
+  </div>
+ </details>
+
+ <div class="mapblock rv">
+  <div class="mapx">
+   <div class="mhead">
+    <h4>Thursday is the only night you leave the hotel</h4>
+    <p>The pre-party sits at Aloha DanceSport Center, about 2 miles up the coast from the Hyatt. Everything Friday through Sunday happens downstairs from your room.</p>
+   </div>
+   <div id="map" role="img" aria-label="Map of Waikiki showing the Hyatt Regency and Aloha DanceSport Center about two miles apart"></div>
+   <div class="mlegend">
+    <div class="mleg">
+     <span class="mdot home"></span>
+     <div><b>Hyatt Regency Waikiki</b>2424 Kalakaua Ave. Your room, the ballroom, all three main days.</div>
+    </div>
+    <div class="mleg">
+     <span class="mdot away"></span>
+     <div><b>Aloha DanceSport Center</b>350 Ward Ave, Suite 200. Thursday pre-party only, 8p to 1a.</div>
+    </div>
+   </div>
+   <div class="mfoot">
+    <div class="mfact"><b>2.1 mi</b><span>straight line</span></div>
+    <div class="mfact"><b>~10 min</b><span>by car up Ala Moana Blvd</span></div>
+    <div class="mfact"><b>~45 min</b><span>if you walk it</span></div>
+    <div class="mfact"><b>Past 1 AM</b><span>get a ride back, do not walk</span></div>
+   </div>
+  </div>
+ </div>
+
+ <details class="dayx rv">
+  <summary><span class="dx-d">Fri, Sep 4</span><span class="dx-t">Hyatt ballroom, tropical night</span></summary>
+  <div class="dx-body">
+   <div class="room">
+    <div class="rm b">Bachata room</div>
+    <ul class="slots">
+     <li><i>9:00a</i><span>Giovanny, bachata for beginners</span></li>
+     <li><i>10:00a</i><span>Cassandra, traditional shines and styling</span></li>
+     <li><i>11:00a</i><span>Samir, sensual bachata</span></li>
+     <li><i>12:00p</i><span>Rodrigo &amp; Wendy, body and flow</span></li>
+     <li><i>1:00p</i><span>Carlitos Phoenix, rides and contra balances</span></li>
+     <li><i>2:00p</i><span>Kaya &amp; Shaun, sensual bachata</span></li>
+     <li><i>3:00p</i><span>Christina Piedra, smooth turn patterns</span></li>
+    </ul>
+   </div>
+   <div class="room">
+    <div class="rm s">Salsa room</div>
+    <ul class="slots">
+     <li><i>8:30a</i><span>Registration</span></li>
+     <li><i>9:00a</i><span>Rafael, salsa On2 beginners, live congas by Fredo Lopez</span></li>
+     <li><i>10:00a</i><span>Ariela Conde, Afro-Cuban for salseros</span></li>
+     <li><i>11:00a</i><span>Michelle &amp; Brandon, partnerwork social style</span></li>
+     <li><i>12:00p</i><span>Adolfo Indacochea, shines</span></li>
+     <li><i>1:00p</i><span>Lawrence Garcia, fusion technique and choreography</span></li>
+     <li><i>2:00p</i><span>Nathalia Raigosa, body movement</span></li>
+     <li><i>3:00p</i><span>Liz Lira, salsa On1</span></li>
+    </ul>
+   </div>
+  </div>
+  <ul class="slots wide">
+   <li><i>4:30-5:15p</i><span>Beach party, rueda class by Gordon</span></li>
+   <li><i>5:15-7:00p</i><span>Beach party, social dancing</span></li>
+   <li><i>8:30-10:30p</i><span>Shows</span></li>
+   <li><i>10:30p-2:00a</i><span>Social dancing</span></li>
+  </ul>
+ </details>
+
+ <details class="dayx rv">
+  <summary><span class="dx-d">Sat, Sep 5</span><span class="dx-t">Hyatt ballroom, gala night</span></summary>
+  <div class="dx-body">
+   <div class="room">
+    <div class="rm b">Bachata room</div>
+    <ul class="slots">
+     <li><i>9:00a</i><span>Cassandra, follow styling, open level</span></li>
+     <li><i>10:00a</i><span>Stephanie Mercado, traditional footwork</span></li>
+     <li><i>11:00a</i><span>Rodrigo &amp; Wendy, sensual fusion</span></li>
+     <li><i>12:00p</i><span>Christina Piedra, musical shines</span></li>
+     <li><i>1:00p</i><span>Catalina, flow and body movement</span></li>
+     <li><i>2:00p</i><span>Carlitos Phoenix, modern bachata fusion</span></li>
+     <li><i>3:00p</i><span>Javi &amp; Kiki, traditional bachata</span></li>
+    </ul>
+   </div>
+   <div class="room">
+    <div class="rm s">Salsa room</div>
+    <ul class="slots">
+     <li><i>9:00a</i><span>Rafael &amp; Sarah, partnerwork for beginners, live congas</span></li>
+     <li><i>10:00a</i><span>Rico Paris, mambo pachanga flavor</span></li>
+     <li><i>11:00a</i><span>Naty, ladies style</span></li>
+     <li><i>12:00p</i><span>Brandon &amp; Michelle, shines</span></li>
+     <li><i>1:00p</i><span>Adolfo, partnerwork</span></li>
+     <li><i>2:00p</i><span>Rico &amp; Mike, shines On2</span></li>
+     <li><i>3:00p</i><span>UDT Dance Company, On2 lead and follow dynamics</span></li>
+    </ul>
+   </div>
+  </div>
+  <ul class="slots wide">
+   <li><i>4:30-5:00p</i><span>To Fanky Boogalo, Beata Mambita</span></li>
+   <li><i>5:00-7:00p</i><span>Beach party, social dancing</span></li>
+   <li><i>8:30-10:30p</i><span>Shows</span></li>
+   <li><i>10:30p-2:00a</i><span>Social dancing</span></li>
+  </ul>
+ </details>
+
+ <details class="dayx rv">
+  <summary><span class="dx-d">Sun, Sep 6</span><span class="dx-t">Hyatt ballroom, all white, runs to 2 AM</span></summary>
+  <div class="dx-body">
+   <div class="room">
+    <div class="rm b">Bachata room</div>
+    <ul class="slots">
+     <li><i>11:00a-1:00p</i><span>Juan Calderon salsa bootcamp <em>not in the full pass</em></span></li>
+     <li><i>2:00-5:00p</i><span>Juan Calderon bachata bootcamp <em>not in the full pass</em></span></li>
+    </ul>
+   </div>
+   <div class="room">
+    <div class="rm s">Salsa room</div>
+    <ul class="slots">
+     <li><i>10:00a</i><span>UDT Dance Company, bachata partnerwork a la moderna</span></li>
+     <li><i>11:00a</i><span>Liz Lira, bachata fusion</span></li>
+     <li><i>12:00p</i><span>Emily Hodges, faster and cleaner turns</span></li>
+     <li><i>1:00p</i><span>Rico &amp; Mike, partnerwork for social dance</span></li>
+     <li><i>2:00p</i><span>Lawrence Garcia &amp; Jewel, salsa styling</span></li>
+     <li><i>3:00p</i><span>Rico Paris, salsa On2 partnerwork</span></li>
+    </ul>
+   </div>
+  </div>
+  <ul class="slots wide">
+   <li><i>5:00-7:00p</i><span>Beach party</span></li>
+   <li><i>9:00-10:30p</i><span>Shows</span></li>
+   <li><i>10:30p-2:00a</i><span>Social dancing, last night</span></li>
+  </ul>
+ </details>
+ </div>
+</section>
+
+<!-- THE FITS -->
+<style>
+  #fits{background:rgba(14,29,51,.60)}
+  .fits-lead{max-width:700px;color:#c6d3e5;font-size:18px;margin-top:-24px;margin-bottom:34px}
+  .fits-lead b{color:var(--white)}
+  .fitgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:900px){.fitgrid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.fitgrid{grid-template-columns:1fr}}
+  .fit{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);padding:22px;display:flex;flex-direction:column;gap:10px}
+  .fit .fn{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .fit .ft{font-family:var(--display);font-weight:800;font-size:21px;line-height:1.15}
+  .fit p{font-size:13px;color:var(--muted);line-height:1.55}
+  .fit .slot{margin-top:auto;padding:14px;border:1px dashed rgba(255,255,255,.18);border-radius:11px;font-size:12px;color:var(--muted);text-align:center;line-height:1.5}
+  .fit.thu .ft{color:var(--white)}
+  .fit.fri .ft{color:var(--teal)}
+  .fit.sat .ft{color:var(--gold)}
+  .fit.sun .ft{color:var(--sand)}
+  .fitnote{margin-top:26px;font-size:13.5px;color:var(--muted);max-width:680px;line-height:1.6}
+  .fitnote b{color:var(--white)}
+</style>
+<section id="fits">
+ <div class="wrap">
+  <div class="sec-head rv">
+   <div>
+    <div class="idx">THE FITS <span class="arch">In progress</span></div>
+    <h2>What I'm wearing.</h2>
+   </div>
+   <p>Three of the four nights carry a dress code, so this is not optional styling. Cowork is building the looks.</p>
+  </div>
+  <p class="fits-lead rv">Four nights, three themes, one carry-on. Cowork is pulling Fashion Nova options against each theme and Claude Design is laying the boards out. <b>The slots below fill in as those land.</b></p>
+  <div class="fitgrid">
+   <div class="fit thu rv">
+    <div class="fn">Thu, Sep 3</div>
+    <div class="ft">Pre-party</div>
+    <p>No theme. Offsite at Aloha DanceSport, and you land at noon that day. Comfortable, dance-ready, nothing precious.</p>
+    <div class="slot">Look TBD</div>
+   </div>
+   <div class="fit fri rv">
+    <div class="fn">Fri, Sep 4</div>
+    <div class="ft">Tropical</div>
+    <p>Island colors and prints. The one night to go loud without thinking twice about it.</p>
+    <div class="slot">Look TBD</div>
+   </div>
+   <div class="fit sat rv">
+    <div class="fn">Sat, Sep 5</div>
+    <div class="ft">Gala night</div>
+    <p>Elegant. This is the night that ends up in everyone's photos, so it gets the most thought.</p>
+    <div class="slot">Look TBD</div>
+   </div>
+   <div class="fit sun rv">
+    <div class="fn">Sun, Sep 6</div>
+    <div class="ft">All white</div>
+    <p>Head to toe white for the close. Runs to 2 AM, so pick something that survives four hours of social.</p>
+    <div class="slot">Look TBD</div>
+   </div>
+  </div>
+  <p class="fitnote rv">Constraints Cowork is working against: <b>everything has to survive a full night of social dancing</b> and fit one carry-on beside the CPAP. Daytime workshops are Fabletics and shorts, so these four are the only real outfit decisions on the trip.</p>
  </div>
 </section>
 
@@ -401,16 +727,28 @@
   #lab .clips{grid-template-columns:repeat(3,1fr)}
   @media(max-width:900px){#lab .clips{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:640px){#lab .clips{grid-template-columns:1fr}}
+  .arch{display:inline-block;margin-left:10px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;vertical-align:middle}
+  .fold{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);padding:0 24px}
+  .fold>summary{cursor:pointer;list-style:none;padding:22px 0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px}
+  .fold>summary::-webkit-details-marker{display:none}
+  .fold>summary span{font-family:var(--display);font-weight:800;font-size:18px;color:var(--white)}
+  .fold>summary small{font-size:13px;color:var(--muted)}
+  .fold>summary::after{content:"+";margin-left:auto;font-family:var(--display);font-weight:800;font-size:22px;color:var(--muted);line-height:1}
+  .fold[open]>summary{content:"";border-bottom:1px solid var(--line);margin-bottom:26px}
+  .fold[open]>summary::after{content:"\2212"}
+  .fold>*:last-child{margin-bottom:26px}
 </style>
 <section id="lab">
   <div class="wrap">
     <div class="sec-head rv">
       <div>
-        <div class="idx">04 / THE LAB</div>
+        <div class="idx">04 / THE LAB <span class="arch">Archived</span></div>
         <h2>The combo bank.</h2>
       </div>
-      <p>Every combination I pick up gets filmed the same night and banked here. Watch, drill, repeat until it is boring.</p>
+      <p>Filmed through July and August on the way to Waikiki. The work is done, the tape stays here.</p>
     </div>
+    <details class="fold rv">
+    <summary><span>Open the combo bank</span><small>13 clips, move chains, the daily streak</small></summary>
     <p class="lab-lead rv">Through July I was on a floor <b>3 to 4 nights a week</b>. Since July 21 it has been <b>every single day</b>. This is where the reps land: combos I'm drilling plus the demo runs I film so the material never slips. Each clip carries its move chain, same breakdown style as the dance brief appendix.</p>
     <div class="lab-stats rv">
       <div class="lstat"><div class="n">3-4</div><div class="t">nights a week &middot; July</div></div>
@@ -443,14 +781,14 @@
         <figcaption><b>Combo 04 &middot; Jul 23 &middot; Salsa</b> - double-hand overhead turn &rarr; free spin &rarr; hammerlock &rarr; cuddle wrap &rarr; faceloop pass &rarr; hand-toss finish.</figcaption>
       </figure>
       <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/IMG_5909.jpg">
-          <source src="clips/IMG_5909.mp4" type="video/mp4">
+        <video controls preload="none" playsinline poster="clips/July 27 2026.jpg">
+          <source src="clips/July 27 2026.mp4" type="video/mp4">
         </video>
         <figcaption><b>Combo 05 &middot; Jul 27 &middot; Bachata</b> - follows' styling drill: side basic &rarr; hip roll &rarr; lunge sweep &rarr; body roll &rarr; low pose. Footwork and styling reference, no partnering. Streak night seven.</figcaption>
       </figure>
       <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/IMG_5910.jpg">
-          <source src="clips/IMG_5910.mp4" type="video/mp4">
+        <video controls preload="none" playsinline poster="clips/July 27 2026 - 2.jpg">
+          <source src="clips/July 27 2026 - 2.mp4" type="video/mp4">
         </video>
         <figcaption><b>Combo 06 &middot; Jul 27 &middot; Bachata</b> - double-hand turn &rarr; cuddle wrap &rarr; faceloop &rarr; forward fold &rarr; unroll. Walked through in reps with coaching pauses. Longest run in the bank.</figcaption>
       </figure>
@@ -461,14 +799,14 @@
         <figcaption><b>Combo 07 &middot; Jul 28 &middot; Bachata</b> - inside turn &rarr; close-embrace wrap &rarr; lady's turn &rarr; behind-the-back wrap &rarr; low close pose. Instructor demo, sensual style. Streak night eight.</figcaption>
       </figure>
       <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/IMG_5912.jpg">
-          <source src="clips/IMG_5912.mp4" type="video/mp4">
+        <video controls preload="none" playsinline poster="clips/July 28 2026.jpg">
+          <source src="clips/July 28 2026.mp4" type="video/mp4">
         </video>
         <figcaption><b>Combo 08 &middot; Jul 28 &middot; Bachata</b> - lady's turn &rarr; shadow wrap &rarr; back lean &rarr; free turn &rarr; low drop into body wave. Demo run, center floor.</figcaption>
       </figure>
       <figure class="clip">
-        <video controls preload="none" playsinline poster="clips/IMG_5914.jpg">
-          <source src="clips/IMG_5914.mp4" type="video/mp4">
+        <video controls preload="none" playsinline poster="clips/July 28 2026 - 2.jpg">
+          <source src="clips/July 28 2026 - 2.mp4" type="video/mp4">
         </video>
         <figcaption><b>Combo 09 &middot; Jul 28 &middot; Bachata</b> - shadow wrap &rarr; side-lean dip &rarr; faceloop turn &rarr; free spin &rarr; cradle dip finish. Full showcase run, closed the night.</figcaption>
       </figure>
@@ -497,6 +835,7 @@
         <figcaption><b>Combo 13 &middot; Salsa</b> - wide shot: the whole floor hits the same double-hand turn together.</figcaption>
       </figure>
     </div>
+    </details>
   </div>
 </section>
 
@@ -505,11 +844,13 @@
  <div class="wrap">
  <div class="sec-head rv">
  <div>
- <div class="idx">05 / THE FIX</div>
+ <div class="idx">05 / THE FIX <span class="arch">Complete</span></div>
  <h2>Six weeks to sharp.</h2>
  </div>
- <p>The interim plan, built straight off the four leaks above. Salsa left, bachata right, one focus a week. Show up to Waikiki dangerous.</p>
+ <p>Ran Jul 20 through Sep 2. Every week landed, so the plan is history now, not a to-do list.</p>
  </div>
+ <details class="fold rv">
+ <summary><span>Open the six-week plan</span><small>Week by week, salsa and bachata, the drills that ran</small></summary>
  <p class="brief-lead rv">Roughly 45 days to the first social. Enough to close the gaps Cavallo exposed: the rockstep footwork, the reads that keep me from collapsing to my old default, the clarity-vs-aggression line, and the hand tosses that rolled me twice. The rule: 30-45 minutes a day, two partner sessions a week, hit a real floor whenever one exists. Foundation first, flash last.</p>
 
  <div class="weeks">
@@ -590,10 +931,34 @@
  <div class="cad"><div class="n">1-2</div><div class="t">socials / wk</div></div>
  <div class="cad"><div class="n">2</div><div class="t">styles - salsa + bachata</div></div>
  </div>
+ </details>
  </div>
 </section>
 
 <!-- NUMBERS -->
+<style>
+  .led{margin-top:4px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.02)}
+  .lrow{display:grid;grid-template-columns:1fr 210px 104px;gap:16px;padding:13px 22px;font-size:13.5px;align-items:baseline;border-top:1px solid rgba(255,255,255,.07)}
+  .lrow span:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--white)}
+  .lrow span:nth-child(2){color:var(--muted);font-size:12.5px}
+  .lrow span:first-child{color:#c6d3e5}
+  .lhead{border-top:0;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .lhead span{color:var(--muted)!important}
+  .lgrp{padding:18px 22px 4px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;border-top:1px solid var(--line)}
+  .lsub{background:rgba(255,255,255,.03)}
+  .lsub span:first-child{color:var(--muted);font-style:italic}
+  .ltot{border-top:1px solid var(--line);background:rgba(255,195,90,.07);padding-top:16px;padding-bottom:16px}
+  .ltot span:first-child{font-family:var(--display);font-weight:800;font-size:16px;color:var(--white)}
+  .ltot span:last-child{font-family:var(--display);font-weight:800;font-size:19px;color:var(--gold)}
+  @media(max-width:760px){
+    .lrow{grid-template-columns:1fr auto;gap:4px 14px}
+    .lrow span:nth-child(2){grid-column:1;order:3}
+    .lrow span:last-child{grid-row:1;grid-column:2}
+    .lhead{display:none}
+  }
+  .led-note{margin-top:16px;font-size:13.5px;color:var(--muted);max-width:660px;line-height:1.6}
+  .total-card.wide{margin-top:44px;max-width:none}
+</style>
 <section id="numbers">
  <div class="wrap">
  <div class="sec-head rv">
@@ -601,20 +966,45 @@
  <div class="idx">06 / THE DAMAGE</div>
  <h2>What it runs.</h2>
  </div>
- <p>Group hotel rate and financed flight kept it lean. Core trip under two grand.</p>
+ <p>Booked and paid, no guesses. Food and rides are left out on purpose so this number stays honest.</p>
  </div>
  <div class="cost">
  <div class="bars rv">
  <div class="bar"><div class="top"><b>Hotel &middot; Hyatt (all-in)</b><span>$1,277</span></div><div class="track"><div class="fill" style="background:var(--coral)" data-w="100"></div></div></div>
  <div class="bar"><div class="top"><b>Flight &middot; Alaska (financed)</b><span>$579</span></div><div class="track"><div class="fill" style="background:var(--gold)" data-w="45"></div></div></div>
- <div class="bar"><div class="top"><b>Food &middot; rides &middot; extras</b><span>$520</span></div><div class="track"><div class="fill" style="background:var(--teal)" data-w="41"></div></div></div>
- <div class="bar"><div class="top"><b>Festival pass</b><span>$175</span></div><div class="track"><div class="fill" style="background:#8b5cf6" data-w="14"></div></div></div>
+ <div class="bar"><div class="top"><b>Festival pass</b><span>$175</span></div><div class="track"><div class="fill" style="background:var(--teal)" data-w="14"></div></div></div>
  </div>
  <div class="total-card rv">
- <div class="k">All-in estimate</div>
- <div class="v">$2,551</div>
- <div class="note">Ticket $175 &middot; Flight ~$579 &middot; Hotel $1,277 &middot; Extras ~$520. Group rate saved ~$600 vs the public Hyatt rate and threw in a $10/night resort fee instead of $55.</div>
+ <div class="k">Booked and paid</div>
+ <div class="v">$2,032</div>
+ <div class="note">Hotel $1,277.34 &middot; flight $579.28 &middot; pass $175. The group rate saved roughly $600 against the public Hyatt price and dropped the resort fee from $55 a night to $10. Food and rides on island are still open, so they are not in this number.</div>
  </div>
+ </div>
+
+ <h3 class="hub-sub rv">What the prep cost</h3>
+ <p class="grid-note rv">Every private and every floor night that went into showing up ready. Straight off the Venmo and Square records, not memory.</p>
+ <div class="led rv">
+  <div class="lrow lhead"><span>What</span><span>When</span><span>Amount</span></div>
+  <div class="lgrp">Carlitos &amp; Cece &middot; privates</div>
+  <div class="lrow"><span>Two privates, Aug 15 and Aug 22</span><span>Paid Aug 11</span><span>$192.00</span></div>
+  <div class="lrow"><span>Two privates, Aug 25 and Aug 29</span><span>Paid Aug 23</span><span>$192.00</span></div>
+  <div class="lrow lsub"><span>Four privates at $96 each</span><span></span><span>$384.00</span></div>
+  <div class="lgrp">Leela &middot; Cavallo Dance AZ</div>
+  <div class="lrow"><span>Two intro lessons, Jul 8 and Jul 10</span><span>Afterpay, 4 payments, closed Aug 22</span><span>$108.01</span></div>
+  <div class="lrow"><span>Square charge</span><span>Jul 14</span><span>$180.00</span></div>
+  <div class="lrow"><span>Private, Aug 10</span><span>Paid Aug 3</span><span>$85.00</span></div>
+  <div class="lrow"><span>Private, Aug 25</span><span>Paid Aug 18</span><span>$85.00</span></div>
+  <div class="lrow lsub"><span>Five lessons on the books</span><span></span><span>$458.01</span></div>
+  <div class="lgrp">Floors and socials</div>
+  <div class="lrow"><span>Bachata, Cumbia y Salsa, socials</span><span>May 29 to Aug 21, five nights</span><span>$115.00</span></div>
+  <div class="lrow ltot"><span>Prep total</span><span></span><span>$957.01</span></div>
+ </div>
+ <p class="led-note rv">The Jul 14 charge of $180 is the loose one. It is the only Cavallo payment that does not line up to a single booked lesson, so if it covered two sessions the real per-lesson rate sits near $90, not $80. Worth a look at the Square receipt before you call the number final.</p>
+
+ <div class="total-card wide rv">
+  <div class="k">Trip plus prep</div>
+  <div class="v">$2,989</div>
+  <div class="note">Two grand to get there and stay there, another grand to not embarrass yourself when you do.</div>
  </div>
  </div>
 </section>
@@ -622,7 +1012,7 @@
 <footer>
  <div class="wrap">
  <div class="big rv">See you on the <em>floor.</em></div>
- <div class="script">6 weeks. then Waikiki.</div>
+ <div class="script">reps are in. now Waikiki.</div>
  <div class="fbtns rv" style="justify-content:center">
  <a class="fbtn primary" href="https://www.eventbrite.com/e/9th-annual-hawaii-salsa-bachata-paradise-tickets-1645540789799?aff=erelexpmlt" target="_blank" rel="noopener">Buy Tickets &rarr;</a>
  <a class="fbtn ig" href="https://www.instagram.com/hawaiisalsabachataparadise" target="_blank" rel="noopener">Instagram</a>
@@ -670,6 +1060,37 @@
  });
  }, {threshold:.15});
  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+ // pre-party map: Hyatt (home base) vs Aloha DanceSport (Thursday only)
+ window.addEventListener('load', function(){
+ var el = document.getElementById('map');
+ if (!el || typeof L === 'undefined') { return; }
+ var hyatt = [21.2765, -157.8264], aloha = [21.2960, -157.8514];
+ var map = L.map(el, {zoomControl:true, scrollWheelZoom:false, attributionControl:true});
+ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+ {attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:19}).addTo(map);
+ function pin(color){
+ return L.divIcon({className:'', iconSize:[16,16], iconAnchor:[8,8], popupAnchor:[0,-10],
+ html:'<div style="width:16px;height:16px;background:'+color+';border-radius:50%;border:2px solid #0a1526;box-shadow:0 0 12px '+color+'"></div>'});
+ }
+ L.polyline([hyatt, aloha], {color:'#ffc35a', weight:2, opacity:.55, dashArray:'6 7'}).addTo(map);
+ L.marker(hyatt, {icon:pin('#ff6b4a')}).addTo(map)
+ .bindPopup('<b>Hyatt Regency Waikiki</b><br>2424 Kalakaua Ave<br>Your room and the main ballroom');
+ L.marker(aloha, {icon:pin('#ffc35a')}).addTo(map)
+ .bindPopup('<b>Aloha DanceSport Center</b><br>350 Ward Ave, Suite 200<br>Thursday pre-party, 8p to 1a');
+ map.fitBounds(L.latLngBounds([hyatt, aloha]).pad(0.45));
+ });
+
+ // reveal never fires inside a closed <details> (no layout box), so force it on open
+ document.querySelectorAll('details').forEach(function(d){
+ d.addEventListener('toggle', function(){
+ if(!d.open){ return; }
+ d.querySelectorAll('.rv').forEach(function(el){
+ el.classList.add('in');
+ el.querySelectorAll('.fill').forEach(function(f){ f.style.width = f.dataset.w + '%'; });
+ });
+ });
+ });
 </script>
 </body>
 </html>
